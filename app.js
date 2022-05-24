@@ -44,18 +44,18 @@ app.post("/", function (req, res) {
       res.sendFile(__dirname + "/failure.html");
     }
 
-    response.on("data", function (data) {
-      console.log(JSON.parse(data));
-    });
+    // response.on("data", function (data) {
+    //   console.log(JSON.parse(data));
+    // });
   });
 
   request.write(jsonData);
   request.end();
 });
 
-// app.post("/redirect", function (req, res) {
-//   res.redirect("/");
-// });
+app.post("/redirect", function (req, res) {
+  res.redirect("/");
+});
 
 app.listen(process.env.PORT || 3000, function () {
   console.log("Server started at Heroku or Port 3000");
